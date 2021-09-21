@@ -26,13 +26,42 @@ class Calculator {
         if(this.currentOutput = ''){
             return
         }
-        this.prevOutput = this.currentOutput;
+        
         this.operation = operation;
+        this.prevOutput = this.currentOutput;
+        this.currentOutput = '';
 
     }
 
     compute(){
-
+        let computation;
+        this.prev = parseFloat(this.prevOutput);
+        this.current = parseFloat(this.currentOutput);
+        
+        if(isNan(prev) || isNan(current)){
+            return
+        }
+        
+        switch(this.operation){
+                case '+':
+                  computation = prev + current;
+                  break;
+                case '-':
+                  computation = prev - current;
+                  break;
+                case '×':
+                  computation = prev * current;
+                  break;
+                case '÷':
+                  computation = prev / current;
+                  break;
+                default:
+                  return
+        }
+        
+        this.currentOutput = computation;
+        this.prevOutput = '';
+        this.operation = undefined;
 
     }
 
