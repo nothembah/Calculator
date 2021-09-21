@@ -35,4 +35,6 @@ body {
     text-align: end;
     padding-top: 40px;
     padding-right: 5px;
+    word-wrap: break-word;
+    word-break: break-all;
 }
