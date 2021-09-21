@@ -15,7 +15,10 @@ class Calculator {
     }
     
     appendNumber(number){
-        this.currentOutput = number;
+        if(number === '.' && this.currentOutput.includes('.')){
+            return ;
+        }
+        this.currentOutput += number;
 
     }
 
