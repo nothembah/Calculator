@@ -26,11 +26,13 @@ class Calculator {
         if(this.currentOutput = ''){
             return
         }
+        this.prevOutput = this.currentOutput;
         this.operation = operation;
 
     }
 
     compute(){
+
 
     }
 
@@ -65,4 +67,9 @@ operationBtns.forEach(button => {
     calculator.chooseOperation(button.innerText);
     calculator.updateDisplay();
     })
+})
+
+clearBtn.addEventListener('click', () => {
+    calculator.compute();
+    calculator.updateDisplay();
 })
