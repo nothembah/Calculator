@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(187, 223, 235);
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: minmax(70px, auto) repeat(5, 70px);
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+.calculator-grid button {
+    border: 1px solid white;
+    font-size: 20px;
+}
+
+.calculator-grid button:hover {
+    border: 1px solid white;
+    background-color: grey;
+    cursor: pointer;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output{
+    grid-column: 1/-1;
+    background-color: white;
+}
