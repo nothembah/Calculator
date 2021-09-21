@@ -23,6 +23,10 @@ class Calculator {
     }
 
     chooseOperation(operation){
+        if(this.currentOutput = ''){
+            return
+        }
+        this.operation = operation;
 
     }
 
@@ -52,6 +56,13 @@ clearBtn.addEventListener('click', () => {
 numberBtns.forEach(button => {
     button.addEventListener('click', () => {
     calculator.appendNumber(button.innerText);
+    calculator.updateDisplay();
+    })
+})
+
+operationBtns.forEach(button => {
+    button.addEventListener('click', () => {
+    calculator.chooseOperation(button.innerText);
     calculator.updateDisplay();
     })
 })
