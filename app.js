@@ -6,7 +6,7 @@ class Calculator {
     }
 
     clear(){
-        this.output = '';
+        this.currentOutput = '';
         this.operation = undefined;
     }
 
@@ -15,6 +15,7 @@ class Calculator {
     }
     
     appendNumber(number){
+        this.currentOutput = number;
 
     }
 
@@ -27,24 +28,27 @@ class Calculator {
     }
 
     updateDisplay(){
-
+        this.output.innerText = this.currentOutput;
     }
 }
 
-let output = document.querySelector(".output")
-let clearBtn = document.querySelector(".clear")
-let deleteBtn = document.querySelector(".output")
-let equalsBtn = document.querySelector(".equals")
-let numberBtns = document.querySelectorAll(".number")
-let operationBtns = document.querySelectorAll(".operation")
+let output = document.querySelector("[data-output")
+let clearBtn = document.querySelector("[data-clear]")
+let deleteBtn = document.querySelector("[data-delete]")
+let equalsBtn = document.querySelector("[data-equals]")
+let numberBtns = document.querySelectorAll("[data-number]")
+let operationBtns = document.querySelectorAll("[data-operation]")
 
 const calculator = new Calculator(output);
 
 clearBtn.addEventListener('click', () => {
     calculator.clear();
+    calculator.updateDisplay();
 })
 
-numberBtns.addEventListener('click', () => {
+numberBtns.forEach(button => {
+    button.addEventListener('click', () => {
     calculator.appendNumber(button.innerText);
     calculator.updateDisplay();
+    })
 })
