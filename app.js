@@ -24,7 +24,12 @@ class Calculator {
     }
 
     chooseOperation(operation){
+        if (this.previousOperand !== '') {
+            this.compute()
+        }
+
         this.prevOutput = this.currentOutput;
+        
         if(this.currentOutput = ''){
             return 0;
         }
