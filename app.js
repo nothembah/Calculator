@@ -10,6 +10,7 @@ class Calculator {
     clear(){
         this.currentOutput = '';
         this.prevOutput = '';
+        this.prePrevOutput = '';
         this.operation = undefined;
     }
 
@@ -29,16 +30,15 @@ class Calculator {
 
     /*choose operator to compute*/
     chooseOperation(operation){
+        if(this.currentOutput == ''){
+            return 0;
+        }
+
         if (this.previousOutput !== '') {
             this.compute()
         }
 
         this.prevOutput = this.currentOutput;
-        
-        if(this.currentOutput = ''){
-            return 0;
-        }
-        
         this.operation = operation;
         this.currentOutput = '';
         this.prePrevOutput = ''
@@ -71,8 +71,7 @@ class Calculator {
         }
         
         this.prePrevOutput = this.prevOutput
-        this.prevOutput = this.currentOutput;/*
-        this.operation = undefined;*/
+        this.prevOutput = this.currentOutput;
         this.currentOutput = computation;
     }
 
