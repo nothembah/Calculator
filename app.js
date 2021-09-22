@@ -41,7 +41,7 @@ class Calculator {
         
         this.operation = operation;
         this.currentOutput = '';
-
+        this.prePrevOutput = ''
     }
 
     /*takes chosen operator an applies computation*/
@@ -69,16 +69,22 @@ class Calculator {
                 default:
                   return
         }
+        
+        this.prePrevOutput = this.prevOutput
+        this.prevOutput = this.currentOutput;/*
+        this.operation = undefined;*/
         this.currentOutput = computation;
-        this.prevOutput = '';
-        this.operation = undefined;
     }
 
     /*updates the display of output screen*/
     updateDisplay(){
         this.output.innerText = this.currentOutput;
         if (this.operation != null || this.operation != undefined) {
-            this.prev.innerText = this.prevOutput + " " + this.operation;
+            if(this.prePrevOutput == ''){
+                this.prev.innerText = this.prevOutput + " " + this.operation;
+            } else {
+                this.prev.innerText = this.prePrevOutput + ' ' + this.operation + ' ' + this.prevOutput;
+            }
         } else {
             this.prev.innerText = '';
         }
