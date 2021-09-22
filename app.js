@@ -1,20 +1,24 @@
 class Calculator {
 
-    constructor(output){
+    constructor(prev, output){
+        this.prev = prev;
         this.output = output;
         this.clear();
     }
-
+    
+    /*clears output*/
     clear(){
         this.currentOutput = '';
         this.prevOutput = '';
         this.operation = undefined;
     }
 
+    /*deletes last appended digit*/
     delete(){
         this.currentOutput = this.currentOutput.toString().slice(0, -1)
     }
     
+    /*add digit to output screen*/
     appendNumber(number){
         if(number === '.' && this.currentOutput.includes('.')){
             return ;
@@ -23,8 +27,9 @@ class Calculator {
 
     }
 
+    /*choose operator to compute*/
     chooseOperation(operation){
-        if (this.previousOperand !== '') {
+        if (this.previousOutput !== '') {
             this.compute()
         }
 
@@ -39,6 +44,7 @@ class Calculator {
 
     }
 
+    /*takes chosen operator an applies computation*/
     compute(){
         let computation
         let prev = parseFloat(this.prevOutput);
@@ -68,11 +74,19 @@ class Calculator {
         this.operation = undefined;
     }
 
+    /*updates the display of output screen*/
     updateDisplay(){
         this.output.innerText = this.currentOutput;
+        if (this.operation != null || this.operation != undefined) {
+            this.prev.innerText = this.prevOutput + " " + this.operation;
+        } else {
+            this.prev.innerText = '';
+        }
     }
 }
 
+/*Selecting elements created in html */
+let prev = document.querySelector("[data-prev-output]")
 let output = document.querySelector("[data-output")
 let clearBtn = document.querySelector("[data-clear]")
 let deleteBtn = document.querySelector("[data-delete]")
@@ -80,8 +94,10 @@ let equalsBtn = document.querySelector("[data-equals]")
 let numberBtns = document.querySelectorAll("[data-number]")
 let operationBtns = document.querySelectorAll("[data-operation]")
 
-const calculator = new Calculator(output);
+/*calculator instance*/
+const calculator = new Calculator(prev, output);
 
+/*Button Event Listeners*/
 clearBtn.addEventListener('click', () => {
     calculator.clear();
     calculator.updateDisplay();
