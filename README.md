@@ -1,4 +1,4 @@
-# Calculator
+# Simple Calculator
  Simple JavaScript Calculator
 
 ## Table of Contents
