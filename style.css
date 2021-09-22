@@ -1,3 +1,8 @@
+@font-face {
+    font-family: calculus;
+    src: url("digital-7.regular-webfont.woff");
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -28,13 +33,26 @@ body {
     grid-column: span 2;
 }
 
-.output{
-    grid-column: 1/-1;
+.calc-output {
+    font-family: calculus, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    grid-column: 1 / -1;
     background-color: white;
-    font-size: 40px;
-    text-align: end;
-    padding-top: 40px;
-    padding-right: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
     word-wrap: break-word;
     word-break: break-all;
+    text-align: end;
 }
+
+.prev-output {
+    color: gray;
+    font-size: 15px;
+}
+
+.output{
+   font-size: 40px;
+}
+
