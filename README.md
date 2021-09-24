@@ -1,5 +1,5 @@
 # Simple Calculator
- Simple JavaScript Calculator
+ Simple JavaScript Calculator -> [Live Demo](https://rawcdn.githack.com/nothembah/Simple-Calculator/dd6d089d33ee621897abd9e155e82902dea722c3/index.html)
 
 ## Table of Contents
 * [General info](#general-info)
